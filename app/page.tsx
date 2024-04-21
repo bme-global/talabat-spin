@@ -47,11 +47,6 @@ export default function Home() {
         }
     };
 
-    const resetWheel = () => {
-        setRotation(0);
-        setWinningObject(null);
-    };
-
     return (
         <main className='flex min-h-screen flex-col items-center p-8'>
             <h2 className='text-xl font-bold uppercase'>{isSpinning ? 'Tap to reset' : 'Tap to spin'}</h2>
