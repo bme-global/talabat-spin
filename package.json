@@ -1,26 +1,27 @@
 {
-  "name": "talabat-spin",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.2"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.2"
-  }
+    "name": "talabat-spin",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "deploy": "rsync -avz  --exclude 'node_modules' --exclude '.next' ./ root@bmedev.net:~/wheel-of-fortune/ && ssh root@bmedev.net 'set -e; cd ~/wheel-of-fortune && docker build -t wheel-of-fortune-app .; docker stop wheel-of-fortune-container || true; docker rm wheel-of-fortune-container || true; docker run -d --restart=unless-stopped -p 6007:3000 --name wheel-of-fortune-container wheel-of-fortune-app'"
+    },
+    "dependencies": {
+        "react": "^18",
+        "react-dom": "^18",
+        "next": "14.2.2"
+    },
+    "devDependencies": {
+        "typescript": "^5",
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "postcss": "^8",
+        "tailwindcss": "^3.4.1",
+        "eslint": "^8",
+        "eslint-config-next": "14.2.2"
+    }
 }
